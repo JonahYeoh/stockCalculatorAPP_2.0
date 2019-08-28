@@ -1,0 +1,35 @@
+<!--Template-->
+
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<title>title</title>
+</head>
+
+<!--Scope-->
+<body ng-app="myApp">
+
+<p>The rootScope's favorite color:</p>
+<h1>{{color}}</h1>
+
+<div ng-controller="myCtrl">
+  <p>The scope of the controller's favorite color:</p>
+  <h1>{{color}}</h1>
+</div>
+
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1>
+<!--Controller-->
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+  $rootScope.color = 'blue'; //rootScope is available in the entire application
+});
+app.controller('myCtrl', function($scope) {
+  $scope.color = "red"; // if a variable has the same name in both the current scope and in the rootScope, 
+}); // the application uses the one in the current scope
+</script>
+</body> 
+
+</html>

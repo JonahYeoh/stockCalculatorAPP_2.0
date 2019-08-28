@@ -1,0 +1,138 @@
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<title>title</title>
+</head>
+
+<body ng-app="myApp">
+	It works!
+	<div ng-controller="mainCtrl">
+		<div id="result">
+			<table border="1" ng-init="treatmentSession=6">
+				<tr>
+					<td>
+						Needle Balance:
+					</td>
+					<td>
+						<input type="number" ng-model="needle_b" />
+					</td>
+					<td>
+						//
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Patient Count
+					</td>
+					<td>
+						<input type="number" ng-model="patientCount" />
+					</td>
+					<td>
+						{{ patientCount / avf15.perbox }}
+					</td>
+				</tr>
+				<tr>
+					<td ng-init="data=9">
+						Report
+					</td>
+					<td ng-init="mir100 = {'name': 'Mircera 100mg', 'maxCap': 10, 'qtt': data, 'rule': [{ 'mircera': 1}]}">
+						{{ maxChecker(((patientCount * 2 * treatmentSession * 1.1)/ avf15.perbox),avf15.maxCap, needle_b) }}
+					</td>
+					<td>
+						Loading... {{ mir100.name }}
+					</td>
+					<td>
+						Data: {{ mir100.qtt }}
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<div id="report">
+			<table>
+				<tr>
+					<td ng-init="hB_max = 8">
+						Hb:
+					</td>
+					<td>
+						{{hB}}
+					</td>
+					<td>
+						{{ fun() }}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sodium
+					</td>
+					<td>
+						{{ sodium }}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Mix
+					</td>
+					<td>
+						{{ hB + sodium * 0.5}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="ulti">
+			<h1>
+				Heading 1: {{ checker() }}
+			</h1>
+			<h2 ng-init="obj={ 
+					patientCount: 100, 
+					needle_b: 10
+				}">
+				{{ display(obj.needle_b) }}
+			</h2>
+		</div>
+	</div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('mainCtrl', function($scope){
+			$scope.patientCount = 100;
+			$scope.needle_b = 8;
+			$scope.checker = function() {
+				if ( $scope.hB > $scope.hB_max ){
+					alert("Quantity higher than maximum capacity");
+				}
+				return $scope.hB;
+			};
+			$scope.sad = function () {
+				return "Sad";
+			};
+			$scope.fun = function (){
+				var data = "Not " + $scope.sad();
+				return data;
+			};
+			$scope.play = function(data){
+				return data*3;
+			}
+			$scope.display = function(data){
+				return data;
+			}
+			$scope.maxChecker = function (data, max, balance){
+				if ( balance > max/3 + data)
+					return 0;
+				else if ( balance < max/3 )
+					data = max/3 + data;
+				else
+					data = data;
+				if ( data > max )
+					alert("High");
+				return Math.ceil(data);
+			}
+		});
+		function portal(data){
+			return data/2;
+		}
+	</script>
+</body>
+
+</html>
