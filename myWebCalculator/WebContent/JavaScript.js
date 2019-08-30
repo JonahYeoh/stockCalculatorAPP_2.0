@@ -96,19 +96,37 @@ app.controller('myCtrl', function($scope) {
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     // Below are sharing same pattern
-    $scope.Syringe3cc = function(BalanceByBox, cvc, bonky, Rate, obj) {
-        var twoWeek = (((cvc * obj.rules[0].cvc) + (bonky * obj.rules[1].bonky)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (((cvc * obj.rules[0].cvc) + (bonky * obj.rules[1].bonky)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+    $scope.Syringe3cc = function(BalanceByBox, catheterCount, bonky1, Rate, obj) {
+        var bonkyBysyringe = bonky1 / 12;
+        var twoWeek = (((catheterCount * obj.rule[0].cvc) + (bonkyBysyringe * obj.rule[1].bonky1)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((catheterCount * obj.rule[0].cvc) + (bonkyBysyringe * obj.rule[1].bonky1)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
-    $scope.Syringe10cc = function(BalanceByBox, PatientCount, avofer, cvc, Rate, obj) {
-        var twoWeek = ((((PatientCount * obj.rules[0].patient) - (cvc * 1)) + ((avofer * obj.rules[1].avofer) + (cvc * obj.rules[2].cvc))) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = ((((PatientCount * obj.rules[0].patient) - (cvc * 1)) + ((avofer * obj.rules[1].avofer) + (cvc * obj.rules[2].cvc))) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+    $scope.Syringe10cc = function(BalanceByBox, PatientCount, avo100, catheterCount, Rate, obj) {
+        var avoferBysyringe = avo100 / 12;
+        var twoWeek = ((((PatientCount * obj.rule[0].patient) - (catheterCount * 1)) + (avoferBysyringe * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = ((((PatientCount * obj.rule[0].patient) - (catheterCount * 1)) + (avoferBysyringe * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
-    $scope.Syringe20cc = function(BalanceByBox, PatientCount, cvc, heparin, Rate, obj) {
-        var twoWeek = (((PatientCount * obj.rules[0].patient) + ((cvc * obj.rule[1].cvc) - (heparin * obj.rules[1].heparin)) + (cvc * obj.rules[2].cvc)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (((PatientCount * obj.rules[0].patient) + ((cvc * obj.rule[1].cvc) - (heparin * obj.rules[1].heparin)) + (cvc * obj.rules[2].cvc)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+    $scope.Syringe20cc = function(BalanceByBox, PatientCount, catheterCount, flushingCount, Rate, obj) {
+        var twoWeek = (((PatientCount * obj.rule[0].patient) - (catheterCount * obj.rule[1].cvc) - (flushingCount * obj.rule[1].cvc) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((PatientCount * obj.rule[0].patient) - (catheterCount * obj.rule[1].cvc) - (flushingCount * obj.rule[1].cvc) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
+
+
+
+    /*
+    $scope.Syringe20cc = function(BalanceByBox, PatientCount, catheterCount, flushingCount, Rate, obj) {
+        var twoWeek = (((PatientCount * obj.rule[0].patient) - ((catheterCount * obj.rule[1].cvc) + (flushingCount * obj.rule[1].cvc)) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((PatientCount * obj.rule[0].patient) - ((catheterCount * obj.rule[1].cvc) + (flushingCount * obj.rule[1].cvc)) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
+    
+    $scope.SterileGauze = function(BalanceByBox, PatientCount, catheterCount, loosequantity, Rate, obj) {
+        var twoWeek = ((((PatientCount * obj.rule[0].patient) - (catheterCount * obj.rule[0].patient)) + ((catheterCount * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc))) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = ((((PatientCount * obj.rule[0].patient) - (catheterCount * 1)) + ((avo100 * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc))) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    */
+
 });

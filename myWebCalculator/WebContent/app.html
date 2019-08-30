@@ -81,7 +81,7 @@
                         Syringe 3cc
                     </td>
                     <td>
-                        <input type="number" ng-model="syr3_b" min="0" max="0" />
+                        <input type="number" ng-model="syr3_b" min="0" max="100" />
                     </td>
                 </tr>
                 <tr>
@@ -614,31 +614,31 @@
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="syringe3cc = {'name':'Syringe 3CC', 'maxCap':18, 'qtt':100, 'rule':[{'cvc':4},{'bonky':1}]}" ng-style="td()">
-                            {{ syringe3cc.name }}
+                        <td ng-init="syr3 = { 'name': 'Syringe 3cc', 'maxCap':18, 'qtt':100, 'rule':[{ 'cvc':4}, { 'bonky1':1 }]}" ng-style="td()">
+                            {{ syr3.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ Syringe3cc(syr3_b, bonky1_b, bonky1_d, catheterCount_d, mediumRisk, syringe3cc) }}
+                            {{ Syringe3cc( syr3_b, catheterCount_d, bonky1_d, mediumRisk, syr3 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="syringe10cc = { 'name': 'Syringe 10cc', 'maxCap': 12, 'qtt': 100, 'rule': [{'patient': 2},{'avofer': 1},{'cvc': 2} ]}" ng-style="td()">
-                            {{ Syringe10cc.name }}
+                        <td ng-init="syr10 = { 'name': 'Syringe 10cc', 'maxCap': 12, 'qtt': 100, 'rule': [{ 'patient': 1}, { 'avo100': 1}, { 'cvc': 2 }]}" ng-style="td()">
+                            {{ syr10.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ Syringe10cc(syr10_b, avo100_b, patientCount_d, avo100_d, catheterCount_d, mediumRisk, syr10) }}
+                            {{ Syringe10cc( syr10_b, patientCount_d, avo100_d, catheterCount_d, mediumRisk, syr10 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="syringe20cc = { 'name': 'Syringe 20cc', 'maxCap': 40, 'qtt': 50, 'rule': [{'patient': 2},{'cvc': 1},{'flushingCount': 3}]}" ng-style="td()">
-                            {{ syringe20cc.name }}
+                        <td ng-init="syr20 = { 'name': 'Syringe 20cc', 'maxCap': 40, 'qtt': 50, 'rule': [{ 'patient': 2}, { 'cvc': 1}, { 'flushingCount': 2 }]}" ng-style="td()">
+                            {{ syr20.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ syringe20c(syr20_b, patientCount_d, catheterCount_d, flushingCount_d mediumRisk, syr20) }}
+                            {{ Syringe20cc( syr20_b, patientCount_d, catheterCount_d, flushingCount_d, mediumRisk, syr20 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="sg = {'name': 'Sterile Gauze', 'maxCap': 54, 'qtt': 20, 'rule': [{'patient':1}, {'cvc': 5}]}" ng-style="td()">
+                        <td ng-init="sg = {'name': 'Sterile Gauze', 'maxCap': 54, 'qtt': 20, 'rule': [{ 'patient':2}, { 'cvc': 5}]}" ng-style="td()">
                             {{ sg.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
@@ -765,6 +765,17 @@
                             {{ Drug( hepavax20_b, hepavax20_d, lowRisk, hepavax20 )}}
                         </td>
                     </tr>
+                    <!--
+                        
+                   
+                    
+                    
+                    
+                   
+                   
+
+                    -->
+
                 </table>
             </div>
             <button type="button" onclick="pdf('dvContent');">PRINT REPORT</button>
