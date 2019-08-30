@@ -114,19 +114,4 @@ app.controller('myCtrl', function($scope) {
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
 
-
-
-    /*
-    $scope.Syringe20cc = function(BalanceByBox, PatientCount, catheterCount, flushingCount, Rate, obj) {
-        var twoWeek = (((PatientCount * obj.rule[0].patient) - ((catheterCount * obj.rule[1].cvc) + (flushingCount * obj.rule[1].cvc)) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (((PatientCount * obj.rule[0].patient) - ((catheterCount * obj.rule[1].cvc) + (flushingCount * obj.rule[1].cvc)) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
-        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
-    };
-    
-    $scope.SterileGauze = function(BalanceByBox, PatientCount, catheterCount, loosequantity, Rate, obj) {
-        var twoWeek = ((((PatientCount * obj.rule[0].patient) - (catheterCount * obj.rule[0].patient)) + ((catheterCount * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc))) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = ((((PatientCount * obj.rule[0].patient) - (catheterCount * 1)) + ((avo100 * obj.rule[1].avo100) + (catheterCount * obj.rule[2].cvc))) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
-        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
-    */
-
 });
