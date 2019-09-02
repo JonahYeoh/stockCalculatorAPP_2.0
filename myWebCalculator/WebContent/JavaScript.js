@@ -78,6 +78,11 @@ app.controller('myCtrl', function($scope) {
         var quantity = $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
         return quantity;
     };
+    $scope.SurgicalMask = function(BalanceByBox, Consumption, Rate, obj) {
+        var twoWeek = (Consumption * Rate) / obj.qtt;
+        var minL = ((Consumption / 12) * Rate * 10) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
     $scope.Concentrate_W1 = function(BalanceByBox, PatientCount, Rate, obj) {
         var oneWeek = (PatientCount * obj.rule[0].dialysate * 3 * Rate) / obj.qtt;
         var minL = (PatientCount * obj.rule[0].dialysate * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
@@ -126,16 +131,16 @@ app.controller('myCtrl', function($scope) {
         var minL = (((Variable1 * obj.rules[0].rule) + (Variable2 * obj.rules[1].rule)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
-	$scope.Stopper = function (BalanceByBox, Variable1, Variable2, Rate, obj ){
-		var twoWeek = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenOrder * Rate ) / obj.qtt;
-		var minL = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenWaiting * Rate ) / obj.qtt;
-		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
-	};
-	$scope.Dressing = function (BalanceByBox, Variable1, Variable2, Rate, obj ){
-		var twoWeek = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenOrder * Rate ) / obj.qtt;
-		var minL = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenWaiting * Rate ) / obj.qtt;
-		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
-	};
+    $scope.Stopper = function(BalanceByBox, Variable1, Variable2, Rate, obj) {
+        var twoWeek = (((Variable1 * obj.rule[0].patient) + (Variable2 * obj.rule[1].cvc)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((Variable1 * obj.rule[0].patient) + (Variable2 * obj.rule[1].cvc)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
+    $scope.Dressing = function(BalanceByBox, Variable1, Variable2, Rate, obj) {
+        var twoWeek = (((Variable1 * obj.rule[0].dressingCount) + (Variable2 * obj.rule[1].cvc)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((Variable1 * obj.rule[0].dressingCount) + (Variable2 * obj.rule[1].cvc)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
     // Below are sharing same pattern
     $scope.Syringe3cc = function(BalanceByBox, catheterCount, bonky1, Rate, obj) {
         var bonkyBysyringe = bonky1 / 12;
@@ -155,14 +160,14 @@ app.controller('myCtrl', function($scope) {
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     $scope.Gauze = function(BalanceByBox, PatientCount, CVC, Rate, obj) {
-        var twoWeek = (((PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule + CVC * obj.rules[1].rule) * $scope.sessionBetweenOrder * Rate) / obj.looseQuantity) / obj.qtt;
-        var minL = (((PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule + CVC * obj.rules[1].rule) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
+        var twoWeek = (((PatientCount * obj.rule[0].patient - CVC * obj.rule[0].patient + CVC * obj.rule[1].cvc) * $scope.sessionBetweenOrder * Rate) / obj.looseQuantity) / obj.qtt;
+        var minL = (((PatientCount * obj.rule[0].patient - CVC * obj.rule[0].patient + CVC * obj.rule[1].cvc) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     // 
     $scope.Cotton = function(BalanceByBox, PatientCount, CVC, Rate, obj) {
-        var twoWeek = (((PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule) * $scope.sessionBetweenOrder * Rate) / obj.looseQuantity) / obj.qtt;
-        var minL = (((PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
+        var twoWeek = (((PatientCount * obj.rule[0].patient - CVC * obj.rule[0].patient) * $scope.sessionBetweenOrder * Rate) / obj.looseQuantity) / obj.qtt;
+        var minL = (((PatientCount * obj.rule[0].patient - CVC * obj.rule[0].patient) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     $scope.CatheterLock = function(Balance, PatientCount, Rate, obj) {
@@ -173,14 +178,14 @@ app.controller('myCtrl', function($scope) {
     };
     $scope.Chlohexidine = function(Balance, PatientCount, Rate, obj) {
         var BalanceByBox = Balance / obj.qtt;
-        var twoWeek = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        var twoWeek = (PatientCount * obj.rule[0].cvc * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (PatientCount * obj.rule[0].cvc * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     $scope.HandTowel = function(Balance, PatientCount, Rate, obj) { // would it be better to count according to consumption ?
         var BalanceByBox = Balance / obj.qtt;
-        var twoWeek = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        var twoWeek = (PatientCount * obj.rule[0].patient * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (PatientCount * obj.rule[0].patient * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
 });

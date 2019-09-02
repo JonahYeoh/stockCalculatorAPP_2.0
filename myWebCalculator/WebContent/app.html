@@ -484,6 +484,20 @@
                         <input type="number" ng-model="dressingCount_d" min="0" max="100" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        Citraflow 4%
+                    </td>
+                    <td>
+                        <input type="number" ng-model="cit4_d" min="0" max="200" />
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
             </table>
         </div>
 
@@ -547,7 +561,7 @@
                             {{ ns1000.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ NormalSaline(ns1000, patientCount_d, flushingCount_d, lowRisk, ns1000 ) }}
+                            {{ NormalSaline(ns1000_b, patientCount_d, flushingCount_d, lowRisk, ns1000 ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -591,7 +605,7 @@
                             {{ Bloodline_W1( bloodline_b, patientCount_d, lowRisk, bloodline ) }}
                         </td>
                         <td style="width: 150px;" ng-style="td()">
-                            {{ Bloodline_W2( patientCount_d, mediumRisk, bloodline )}}
+                            {{ Bloodline_W2( patientCount_d, lowRisk, bloodline )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -610,7 +624,7 @@
                             {{ dressing.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ }}
+                            {{ Dressing( dressing_b, dressingCount_d, catheterCount_d, mediumRisk, dressing )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -682,7 +696,7 @@
                             {{ chlohex.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-
+                            {{ Chlohexidine( chlohex2_b, catheterCount_d, lowRisk, chlohex )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -690,7 +704,7 @@
                             {{ rev300.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ SingleUse( rev300_b, isolationCount_d, hepc_d, mediumRisk, rev300 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -698,7 +712,7 @@
                             {{ stopper.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Stopper(stopper_b, patientCount_d, catheterCount_d, lowRisk, stopper )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -706,7 +720,7 @@
                             {{ handtowel.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ HandTowel( handtowel_b, patientCount_d, mediumRisk, handtowel) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -714,7 +728,7 @@
                             {{ sm.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ SurgicalMask( sm_b, sm_d, lowRisk, sm )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
