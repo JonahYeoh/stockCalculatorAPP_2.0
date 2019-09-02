@@ -5,6 +5,17 @@
 var background = { "background-color": "#C1D786" };
 var rowStyle = { "height": "8px", "border-bottom": "none", "border": "1px solid black" };
 var cellStyle = { "border-bottom": "none", "border": "1px solid black" };
+var AlertMessage = new Array('Error');
+
+function updateError() {
+	var str = "";
+	for ( i = 0; i < AlertMessage.length; i++ )
+		str += AlertMessage[i] + " ";
+	document.getElementById("error").innerHTML = str;
+}
+
+
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.departments = ['PGDC/L4', 'PGDC/L5'];
@@ -13,6 +24,7 @@ app.controller('myCtrl', function($scope) {
     $scope.lowRisk = 1.05;
     $scope.mediumRisk = 1.08;
     $scope.highRisk = 1.10;
+
     $scope.style = function() {
         return background;
     };
@@ -27,6 +39,33 @@ app.controller('myCtrl', function($scope) {
     $scope.checkStatus = function() {
         return $scope.status;
     };
+	$scope.finalCheck = function (BalanceByBox, minL, twoWeek, obj ) {
+		var quantity;
+		if ( BalanceByBox >= minL + twoWeek ) {
+			quantity = 0;
+			return quantity;
+		}
+		else if ( BalanceByBox < minL )
+			quantity = minL - BalanceByBox + twoWeek;
+		else
+			quantity = twoWeek;
+		if ( quantity > obj.maxCap ){
+			i = 0;state = true;
+			while ( i < AlertMessage.length ){
+				if ( obj.name == AlertMessage[i] ){
+					state = false;
+					break;
+				}
+				else
+					i++;
+			}
+			if ( state == true )
+				AlertMessage.push(obj.name);
+		}
+		else if ( quantity < obj.maxCap/3 )
+			quantity = obj.maxCap/3;
+		return Math.ceil(quantity);
+	};
     $scope.finalCheck = function(BalanceByBox, minL, twoWeek, obj) {
         var quantity;
         if (BalanceByBox >= minL + twoWeek) {
@@ -113,5 +152,16 @@ app.controller('myCtrl', function($scope) {
         var minL = (((PatientCount * obj.rule[0].patient) - (catheterCount * obj.rule[1].cvc) - (flushingCount * obj.rule[1].cvc) + (catheterCount * obj.rule[2].flushingCount)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
+	$scope.Gauze = function (BalanceByBox, PatientCount, CVC, Rate, obj ) {
+		var twoWeek = ( (( PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule + CVC * obj.rules[1].rule ) * $scope.sessionBetweenOrder * Rate ) / obj.looseQuantity ) / obj.qtt;
+		var minL = (( ( PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule + CVC * obj.rules[1].rule ) * $scope.sessionBetweenWaiting * Rate ) / obj.looseQuantity ) / obj.qtt;
+		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
+	};
+	// 
+	$scope.Cotton = function ( BalanceByBox, PatientCount, CVC, Rate, obj ){
+		var twoWeek = ( ( (PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule) * $scope.sessionBetweenOrder * Rate ) / obj.looseQuantity ) / obj.qtt;
+		var minL = ( ( (PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule) * $scope.sessionBetweenWaiting * Rate ) / obj.looseQuantity ) / obj.qtt;
+		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
+	};
 
 });
