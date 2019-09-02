@@ -513,7 +513,7 @@
                             Session Before Expected Arrival
                         </td>
                         <td>
-                            <input type="number" ng-model="sessionBetween" min="0" max="20" />
+                            <input type="number" ng-model="sessionBetweenWaiting" min="0" max="20" />
                         </td>
                     </tr>
                     <tr>
@@ -527,7 +527,7 @@
                 </table>
                 <table style="margin-left: auto;margin-right:auto;font-size:14px;border-bottom:none;border:1px solid black;">
                     <tr style="height:8px;border-bottom:none;border: 1px solid black;">
-                        <th style="width: 350px;border:inherit; background-color: #f1f1f1;" ng-init="sessionBetweenWaiting=5;sessionBetweenOrder=6;lowRisk=1.05; mediumRisk=1.08; highRisk=1.10;">
+                        <th style="width: 350px;border:inherit; background-color: #f1f1f1;" ng-init="sessionBetweenOrder=6;lowRisk=1.05; mediumRisk=1.08; highRisk=1.10;">
                             ITEM
                         </th>
                         <th style="width: 300px;border:inherit; background-color: #f1f1f1;" colspan="2">
@@ -539,7 +539,7 @@
                             {{ ns500.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ ns500.rule[0].patient }}
+                            {{ NormalSaline(ns500_b, patientCount_d, isolationCount_d, mediumRisk, ns500 ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -547,7 +547,7 @@
                             {{ ns1000.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ test(ns1000) }}
+                            {{ NormalSaline(ns1000, patientCount_d, flushingCount_d, lowRisk, ns1000 ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -580,7 +580,7 @@
                             {{ Concentrate_W1( ca15_b, ca15_d, lowRisk, ca15 )}}
                         </td>
                         <td style="width: 150px;" ng-style="td()">
-                            {{ Concentrate_W2( ca15_d, lowRisk, ca15 )}}
+                            {{ Concentrate_W2( ca15_d, highRisk, ca15 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -588,10 +588,10 @@
                             {{ bloodline.name }}
                         </td>
                         <td style="width: 150px;" ng-style="td()">
-                            Loading...
+                            {{ Bloodline_W1( bloodline_b, patientCount_d, lowRisk, bloodline ) }}
                         </td>
                         <td style="width: 150px;" ng-style="td()">
-
+                            {{ Bloodline_W2( patientCount_d, mediumRisk, bloodline )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -610,7 +610,7 @@
                             {{ dressing.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading... Color
+                            {{ }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -642,15 +642,15 @@
                             {{ sg.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Gauze( sg_b, patientCount_d, catheterCount_d, mediumRisk, sg ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="sb = { 'name': 'Sterile Cotton Ball', 'maxCap':16, 'qtt': 30, 'rule': [{ 'patient': 2}]}" ng-style="td()">
-                            {{ sb.name }}
+                        <td ng-init="sc = { 'name': 'Sterile Cotton Ball', 'maxCap':16, 'qtt': 30, 'rule': [{ 'patient': 2}]}" ng-style="td()">
+                            {{ sc.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Cotton( sc_b, patientCount_d, catheterCount_d, mediumRisk, sc )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -658,7 +658,7 @@
                             {{ avf15.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Needle( avf15_b, avf15_d, lowRisk, avf15 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -666,7 +666,7 @@
                             {{ avf16.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Needle( avf16_b, avf16_d, lowRisk, avf16 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -674,7 +674,7 @@
                             {{ avf17.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+                            {{ Needle( avf17_b, avf17_d, lowRisk, avf17 )}}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -682,7 +682,7 @@
                             {{ chlohex.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            Loading...
+
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -766,10 +766,10 @@
                         </td>
                     </tr>
                     <tr>
-						<td colspan="3" id="error">
-							
-						</td>
-					</tr>
+                        <td colspan="3" id="error">
+
+                        </td>
+                    </tr>
                 </table>
             </div>
             <button type="button" onclick="updateError();pdf('dvContent');">PRINT REPORT</button>
