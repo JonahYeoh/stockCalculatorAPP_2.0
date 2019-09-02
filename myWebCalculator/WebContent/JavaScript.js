@@ -155,5 +155,22 @@ app.controller('myCtrl', function($scope) {
         var minL = (((PatientCount * obj.rules[0].rule - CVC * obj.rules[0].rule) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
-
+    $scope.CatheterLock = function(Balance, PatientCount, Rate, obj) {
+        var BalanceByBox = Balance / obj.qtt; // query the need to calculate by pieces
+        var twoWeek = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
+    $scope.Chlohexidine = function(Balance, PatientCount, Rate, obj) {
+        var BalanceByBox = Balance / obj.qtt;
+        var twoWeek = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
+    $scope.HandTowel = function(Balance, PatientCount, Rate, obj) { // would it be better to count according to consumption ?
+        var BalanceByBox = Balance / obj.qtt;
+        var twoWeek = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (PatientCount * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
 });
