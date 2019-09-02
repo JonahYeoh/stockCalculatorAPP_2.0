@@ -126,6 +126,16 @@ app.controller('myCtrl', function($scope) {
         var minL = (((Variable1 * obj.rules[0].rule) + (Variable2 * obj.rules[1].rule)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
+	$scope.Stopper = function (BalanceByBox, Variable1, Variable2, Rate, obj ){
+		var twoWeek = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenOrder * Rate ) / obj.qtt;
+		var minL = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenWaiting * Rate ) / obj.qtt;
+		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
+	};
+	$scope.Dressing = function (BalanceByBox, Variable1, Variable2, Rate, obj ){
+		var twoWeek = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenOrder * Rate ) / obj.qtt;
+		var minL = ((( Variable1 * obj.rules[0].rule ) + ( Variable2 * obj.rules[1].rule )) * $scope.sessionBetweenWaiting * Rate ) / obj.qtt;
+		return $scope.finalCheck( BalanceByBox, minL, twoWeek, obj );
+	};
     // Below are sharing same pattern
     $scope.Syringe3cc = function(BalanceByBox, catheterCount, bonky1, Rate, obj) {
         var bonkyBysyringe = bonky1 / 12;
