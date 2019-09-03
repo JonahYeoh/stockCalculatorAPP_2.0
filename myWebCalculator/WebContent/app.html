@@ -787,18 +787,18 @@
                         <td ng-init="cit4 = {'name': 'Citraflow 4%', 'maxCap': 2, 'qtt': 100, rule : [{'cit4' : 1}]}" ng-style="td()">
                             {{ cit4.name }}
                         </td>
-                        <td colspan="2 " style="width: 300px; " ng-style="td() ">
+                        <td colspan="2 " style="width: 300px; " ng-style="td()">
                             {{ Drug( cit_b, cit_d, lowRisk, cit4 )}}
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3 " id="error ">
-
+                        <td colspan="3 " id="error">
+                            Loding...
                         </td>
                     </tr>
                 </table>
             </div>
-            <button type="button " onclick="updateError();pdf( 'dvContent');pdf( 'demandContent');pdf('balanceContent');">PRINT REPORT</button>
+            <button type="button " onclick="updateError();pdf( 'dvContent');pdf( 'demandContent');pdf( 'balanceContent');">PRINT REPORT</button>
         </div>
     </div>
 </body>
