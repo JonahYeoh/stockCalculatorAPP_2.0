@@ -5,7 +5,7 @@
 var background = { "background-color": "#C1D786" };
 var rowStyle = { "height": "8px", "border-bottom": "none", "border": "1px solid black" };
 var cellStyle = { "border-bottom": "none", "border": "1px solid black" };
-var AlertMessage = new Array('Error:');
+var AlertMessage = new Array('Amount over max capacity:');
 
 function updateError() {
     var str = "";
