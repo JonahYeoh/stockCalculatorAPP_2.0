@@ -86,28 +86,88 @@ app.controller('myCtrl', function($scope) {
     $scope.Concentrate_W1 = function(BalanceByBox, PatientCount, Rate, obj) {
         var oneWeek = (PatientCount * obj.rule[0].dialysate * 3 * Rate) / obj.qtt;
         var minL = (PatientCount * obj.rule[0].dialysate * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
-        var quantity = $scope.finalCheck(BalanceByBox, minL, oneWeek, obj);
-        return quantity;
+
+        if (BalanceByBox >= (minL / 2) + oneWeek) {
+            quantity = 0;
+            return quantity;
+        } else if (BalanceByBox < minL / 2)
+            quantity = (minL / 2) - BalanceByBox + oneWeek;
+        else
+            quantity = oneWeek;
+        if (quantity > obj.maxCap) {
+            i = 0;
+            state = true;
+            while (i < AlertMessage.length) {
+                if (obj.name == AlertMessage[i]) {
+                    state = false;
+                    break;
+                } else
+                    i++;
+            }
+            if (state == true)
+                AlertMessage.push(obj.name);
+        }
+        return Math.ceil(quantity);
     };
     $scope.Concentrate_W2 = function(PatientCount, Rate, obj) {
         var quantity = (PatientCount * obj.rule[0].dialysate * 3 * Rate) / obj.qtt;
         return Math.ceil(quantity);
     };
     $scope.BiBag_W1 = function(BalanceByBox, PatientCount, Rate, obj) {
-        var twoWeek = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
+        var oneWeek = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
         var minL = (PatientCount * obj.rule[0].patient * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
-        var quantity = $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
-        return quantity;
+
+        if (BalanceByBox >= (minL / 2) + oneWeek) {
+            quantity = 0;
+            return quantity;
+        } else if (BalanceByBox < minL / 2)
+            quantity = (minL / 2) - BalanceByBox + oneWeek;
+        else
+            quantity = oneWeek;
+        if (quantity > obj.maxCap) {
+            i = 0;
+            state = true;
+            while (i < AlertMessage.length) {
+                if (obj.name == AlertMessage[i]) {
+                    state = false;
+                    break;
+                } else
+                    i++;
+            }
+            if (state == true)
+                AlertMessage.push(obj.name);
+        }
+        return Math.ceil(quantity);
     };
     $scope.BiBag_W2 = function(PatientCount, Rate, obj) {
         var quantity = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
         return Math.ceil(quantity);
     };
     $scope.Bloodline_W1 = function(BalanceByBox, PatientCount, Rate, obj) {
-        var twoWeek = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
+        var oneWeek = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
         var minL = (PatientCount * obj.rule[0].patient * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
-        var quantity = $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
-        return quantity;
+
+        if (BalanceByBox >= (minL / 2) + oneWeek) {
+            quantity = 0;
+            return quantity;
+        } else if (BalanceByBox < minL / 2)
+            quantity = (minL / 2) - BalanceByBox + oneWeek;
+        else
+            quantity = oneWeek;
+        if (quantity > obj.maxCap) {
+            i = 0;
+            state = true;
+            while (i < AlertMessage.length) {
+                if (obj.name == AlertMessage[i]) {
+                    state = false;
+                    break;
+                } else
+                    i++;
+            }
+            if (state == true)
+                AlertMessage.push(obj.name);
+        }
+        return Math.ceil(quantity);
     };
     $scope.Bloodline_W2 = function(PatientCount, Rate, obj) {
         var quantity = (PatientCount * obj.rule[0].patient * 3 * Rate) / obj.qtt;
@@ -121,9 +181,14 @@ app.controller('myCtrl', function($scope) {
     // Below are sharing same pattern
     // Normal Saline 500 demand are based on patient count ( 1 : 1 ) - isolation ( 1 : 1 ) every treatment // consistency : medium
     // Normal Saline 1000 demand are based on patient count ( 1 : 1 ) and flushing ( 1 : 1 ) every treatment // consistency : low
-    $scope.NormalSaline = function(BalanceByBox, Variable1, Variable2, Rate, obj) {
-        var twoWeek = (((Variable1 * obj.rules[0].rule) + (Variable2 * obj.rules[1].rule)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
-        var minL = (((Variable1 * obj.rules[0].rule) + (Variable2 * obj.rules[1].rule)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+    $scope.NormalSaline500 = function(BalanceByBox, Variable1, Variable2, Rate, obj) {
+        var twoWeek = (((Variable1 * obj.rules[0].rule) - (Variable2 * obj.rules[0].rule)) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = (((Variable1 * obj.rules[0].rule) - (Variable2 * obj.rules[0].rule)) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
+        return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
+    };
+    $scope.NormalSaline1000 = function(BalanceByBox, Variable1, Variable2, Rate, obj) {
+        var twoWeek = ((Variable1 + Variable2) * obj.rules[0].rule * $scope.sessionBetweenOrder * Rate) / obj.qtt;
+        var minL = ((Variable1 + Variable2) * obj.rules[0].rule * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
     $scope.SingleUse = function(BalanceByBox, Variable1, Variable2, Rate, obj) { // ?? Hepatits Patient is not included in Isolation Patient

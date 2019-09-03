@@ -12,6 +12,9 @@
 </head>
 
 <body ng-app="myApp">
+    <div class="logo">
+        <img src="http://www.liberaldictionary.com/wp-content/uploads/2019/02/icon-0326.jpg" alt="logo" align="left" width="10%" />
+    </div>
     <h2>Data Entry</h2>
     <p>Fill in the blanks:</p>
     <div ng-controller="myCtrl">
@@ -23,526 +26,525 @@
 
         <div id="BALANCE" class="tabcontent">
             <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div id="balanceContent">
-                <table>
-                    <tr>
-                        <th class="column0">
-                            Drug
-                        </th>
-                        <th class="column1">
-                            Balance
-                        </th>
-                        <th class="column0">
-                            Solution
-                        </th>
-                        <th class="column1">
-                            Balance By Box
-                        </th>
-                        <th class="column0">
-                            General Item
-                        </th>
-                        <th class="column1">
-                            Balance By Box
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            Recormon 2000iu
-                        </td>
-                        <td>
-                            <input type="number" ng-model="rec2k_b" min="0" max="400" />
-                        </td>
-                        <td>
-                            Normal Saline 500ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ns500_b" min="0" max="200" />
-                        </td>
-                        <td>
-                            Dressing Set
-                        </td>
-                        <td>
-                            <input type="number" ng-model="dressing_b" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Mircera 100mg
-                        </td>
-                        <td>
-                            <input type="number" ng-model="mir100_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            Normal Saline 1000ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ns1000_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            Syringe 3cc
-                        </td>
-                        <td>
-                            <input type="number" ng-model="syr3_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Bonky inj 1mcg/ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="bonky1_b" min="0" max="400" />
-                        </td>
-                        <td>
-                            Chlohexideine 2% 60ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="chlohex2_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            Syringe 10cc
-                        </td>
-                        <td>
-                            <input type="number" ng-model="syr10_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Avofer 100mg/5ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avo100_b" min="0" max="200" />
-                        </td>
-                        <td>
-                            Bibag 650g 5008(new)
-                        </td>
-                        <td>
-                            <input type="number" ng-model="bbag_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            Syringe 20cc
-                        </td>
-                        <td>
-                            <input type="number" ng-model="syr20_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Hepavax 20ug/vial
-                        </td>
-                        <td>
-                            <input type="number" ng-model="hepavax20_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            B-braun Ca 1.0mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca1_b" min="0" max="200" />
-                        </td>
-                        <td>
-                            Sterile Gauze
-                        </td>
-                        <td>
-                            <input type="number" ng-model="sg_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Unihepa 5000 units/ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="unihepa5k_b" min="0" max="400" />
-                        </td>
-                        <td>
-                            B-braun Ca 1.25mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca125_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            Sterile Cotton Ball
-                        </td>
-                        <td>
-                            <input type="number" ng-model="sc_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Citraflow 4%
-                        </td>
-                        <td>
-                            <input type="number" ng-model="cit4_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            B-braun Ca 1.5mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca15_b" min="0" max="100" />
-                        </td>
-                        <td>
-                            AVF Needle 15G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf15_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+            <table>
+                <tr>
+                    <th class="column0">
+                        Drug
+                    </th>
+                    <th class="column1">
+                        Balance
+                    </th>
+                    <th class="column0">
+                        Solution
+                    </th>
+                    <th class="column1">
+                        Balance By Box
+                    </th>
+                    <th class="column0">
+                        General Item
+                    </th>
+                    <th class="column1">
+                        Balance By Box
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Recormon 2000iu
+                    </td>
+                    <td>
+                        <input type="number" ng-model="rec2k_b" min="0" max="400" />
+                    </td>
+                    <td>
+                        Normal Saline 500ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ns500_b" min="0" max="200" />
+                    </td>
+                    <td>
+                        Dressing Set
+                    </td>
+                    <td>
+                        <input type="number" ng-model="dressing_b" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mircera 100mg
+                    </td>
+                    <td>
+                        <input type="number" ng-model="mir100_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        Normal Saline 1000ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ns1000_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        Syringe 3cc
+                    </td>
+                    <td>
+                        <input type="number" ng-model="syr3_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bonky inj 1mcg/ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="bonky1_b" min="0" max="400" />
+                    </td>
+                    <td>
+                        Chlohexideine 2% 60ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="chlohex2_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        Syringe 10cc
+                    </td>
+                    <td>
+                        <input type="number" ng-model="syr10_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Avofer 100mg/5ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avo100_b" min="0" max="200" />
+                    </td>
+                    <td>
+                        Bibag 650g 5008(new)
+                    </td>
+                    <td>
+                        <input type="number" ng-model="bbag_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        Syringe 20cc
+                    </td>
+                    <td>
+                        <input type="number" ng-model="syr20_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Hepavax 20ug/vial
+                    </td>
+                    <td>
+                        <input type="number" ng-model="hepavax20_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        B-braun Ca 1.0mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca1_b" min="0" max="200" />
+                    </td>
+                    <td>
+                        Sterile Gauze
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sg_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Unihepa 5000 units/ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="unihepa5k_b" min="0" max="400" />
+                    </td>
+                    <td>
+                        B-braun Ca 1.25mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca125_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        Sterile Cotton Ball
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sc_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Citraflow 4%
+                    </td>
+                    <td>
+                        <input type="number" ng-model="cit4_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        B-braun Ca 1.5mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca15_b" min="0" max="100" />
+                    </td>
+                    <td>
+                        AVF Needle 15G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf15_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            AVF Needle 16G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf16_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        AVF Needle 16G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf16_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            AVF Needle 17G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf17_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        AVF Needle 17G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf17_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            Bloodline 3 + 1
-                        </td>
-                        <td>
-                            <input type="number" ng-model="bloodline_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        Bloodline 3 + 1
+                    </td>
+                    <td>
+                        <input type="number" ng-model="bloodline_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            Revaclear 300
-                        </td>
-                        <td>
-                            <input type="number" ng-model="rev300_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        Revaclear 300
+                    </td>
+                    <td>
+                        <input type="number" ng-model="rev300_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            Combi Red Stopper
-                        </td>
-                        <td>
-                            <input type="number" ng-model="stopper_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        Combi Red Stopper
+                    </td>
+                    <td>
+                        <input type="number" ng-model="stopper_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            Hand Towel
-                        </td>
-                        <td>
-                            <input type="number" ng-model="handtowel_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
+                        Hand Towel
+                    </td>
+                    <td>
+                        <input type="number" ng-model="handtowel_b" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
-                            Surgical Mask
-                        </td>
-                        <td>
-                            <input type="number" ng-model="sm_b" min="0" max="100" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    </td>
+                    <td>
+                        Surgical Mask
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sm_b" min="0" max="100" />
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div id="DEMAND" class="tabcontent">
             <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div id="demandContent">
-                <table>
-                    <tr>
-                        <th class="column0">
-                            Parameter
-                        </th>
-                        <th class="column1">
-                            Quantity
-                        </th>
-                        <th class="column0">
-                            Parameter
-                        </th>
-                        <th class="column1">
-                            Quantity
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            Total Patient
-                        </td>
-                        <td>
-                            <input type="number" ng-model="patientCount_d" min="25" max="200" />
-                        </td>
-                        <td>
-                            Recormon 2000iu
-                        </td>
-                        <td>
-                            <input type="number" ng-model="rec2k_d" min="0" max="1000" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Hepatitis C
-                        </td>
-                        <td>
-                            <input type="number" ng-model="hepc_d" min="0" max="15" />
-                        </td>
-                        <td>
-                            Hepavax 20mcg/vial
-                        </td>
-                        <td>
-                            <input type="number" ng-model="hepavax20_d" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Isolation Patient
-                        </td>
-                        <td>
-                            <input type="number" ng-model="isolationCount_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            Mircera 100mg
-                        </td>
-                        <td>
-                            <input type="number" ng-model="mir100_d" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Catheter Patient
-                        </td>
-                        <td>
-                            <input type="number" ng-model="catheterCount_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            Unihepa 5000units/ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="unihepa5k_d" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Flushing Patient
-                        </td>
-                        <td>
-                            <input type="number" ng-model="flushingCount_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            Avofer 100mg/5ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avo100_d" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Revaclear 300
-                        </td>
-                        <td>
-                            <input type="number" ng-model="rev300_d" min="0" max="300" />
-                        </td>
-                        <td>
-                            Bonky 1mcg/ml
-                        </td>
-                        <td>
-                            <input type="number" ng-model="bonky1_d" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            B-braun Ca 1.0mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca1_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            AVF Needle 15G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf15_d" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            B-braun Ca 1.25mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca125_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            AVF Needle 16G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf16_d" min="0" max="200" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            B-braun Ca 1.5mmol/L
-                        </td>
-                        <td>
-                            <input type="number" ng-model="ca15_d" min="0" max="50" />
-                        </td>
-                        <td>
-                            AVF Needle 17G
-                        </td>
-                        <td>
-                            <input type="number" ng-model="avf17_d" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Surgical Mask By Box
-                        </td>
-                        <td>
-                            <input type="number" ng-model="sm_d" min="0" max="100" />
-                        </td>
-                        <td>
-                            Dressing
-                        </td>
-                        <td>
-                            <input type="number" ng-model="dressingCount_d" min="0" max="100" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Citraflow 4%
-                        </td>
-                        <td>
-                            <input type="number" ng-model="cit4_d" min="0" max="200" />
-                        </td>
-                        <td>
+            <table>
+                <tr>
+                    <th class="column0">
+                        Parameter
+                    </th>
+                    <th class="column1">
+                        Quantity
+                    </th>
+                    <th class="column0">
+                        Parameter
+                    </th>
+                    <th class="column1">
+                        Quantity
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Total Patient
+                    </td>
+                    <td>
+                        <input type="number" ng-model="patientCount_d" min="25" max="200" />
+                    </td>
+                    <td>
+                        Recormon 2000iu
+                    </td>
+                    <td>
+                        <input type="number" ng-model="rec2k_d" min="0" max="1000" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Hepatitis C
+                    </td>
+                    <td>
+                        <input type="number" ng-model="hepc_d" min="0" max="15" />
+                    </td>
+                    <td>
+                        Hepavax 20mcg/vial
+                    </td>
+                    <td>
+                        <input type="number" ng-model="hepavax20_d" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Isolation Patient
+                    </td>
+                    <td>
+                        <input type="number" ng-model="isolationCount_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        Mircera 100mg
+                    </td>
+                    <td>
+                        <input type="number" ng-model="mir100_d" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Catheter Patient
+                    </td>
+                    <td>
+                        <input type="number" ng-model="catheterCount_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        Unihepa 5000units/ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="unihepa5k_d" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Flushing Patient
+                    </td>
+                    <td>
+                        <input type="number" ng-model="flushingCount_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        Avofer 100mg/5ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avo100_d" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Revaclear 300
+                    </td>
+                    <td>
+                        <input type="number" ng-model="rev300_d" min="0" max="300" />
+                    </td>
+                    <td>
+                        Bonky 1mcg/ml
+                    </td>
+                    <td>
+                        <input type="number" ng-model="bonky1_d" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        B-braun Ca 1.0mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca1_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        AVF Needle 15G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf15_d" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        B-braun Ca 1.25mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca125_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        AVF Needle 16G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf16_d" min="0" max="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        B-braun Ca 1.5mmol/L
+                    </td>
+                    <td>
+                        <input type="number" ng-model="ca15_d" min="0" max="50" />
+                    </td>
+                    <td>
+                        AVF Needle 17G
+                    </td>
+                    <td>
+                        <input type="number" ng-model="avf17_d" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Surgical Mask By Box
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sm_d" min="0" max="100" />
+                    </td>
+                    <td>
+                        Dressing
+                    </td>
+                    <td>
+                        <input type="number" ng-model="dressingCount_d" min="0" max="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Citraflow 4%
+                    </td>
+                    <td>
+                        <input type="number" ng-model="cit4_d" min="0" max="200" />
+                    </td>
+                    <td>
 
-                        </td>
-                        <td>
+                    </td>
+                    <td>
 
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div id="REPORT" class="tabcontent">
             <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div id="dvContent">
-                <table>
-                    <tr>
-                        <td>
-                            Date:
-                        </td>
-                        <td>
-                            <input type="date" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Department:
-                        </td>
-                        <td>
-                            <select ng-model="selectedDepartment" ng-options="x for x in departments">
+
+            <table>
+                <tr ng-style="tr()">
+                    <td>
+                        Date:
+                    </td>
+                    <td>
+                        <input type="date" id="dd" />
+                    </td>
+                </tr>
+                <tr ng-style="tr()">
+                    <td>
+                        Department:
+                    </td>
+                    <td>
+                        <select id="department">
+                                <option id="option1" name="dept" >PGDC Level 4</option>
+                                <option id="option2" name="dept" >PGDC Level 5</option>
 							</select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Session Before Expected Arrival
-                        </td>
-                        <td>
-                            <input type="number" ng-model="sessionBetweenWaiting" min="0" max="20" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Name:
-                        </td>
-                        <td>
-                            <input type="text" />
-                        </td>
-                    </tr>
-                </table>
+                    </td>
+                </tr>
+                <tr ng-style="tr()">
+                    <td>
+                        Session Before Expected Arrival
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sessionBetweenWaiting" min="0" max="20" />
+                    </td>
+                </tr>
+                <tr ng-style="tr()">
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        <input type="text" id="storeKeeper" value="demo" />
+                    </td>
+                </tr>
+            </table>
+            <div id="dvContent">
                 <table style="margin-left: auto;margin-right:auto;font-size:14px;border-bottom:none;border:1px solid black;">
                     <tr style="height:8px;border-bottom:none;border: 1px solid black;">
                         <th style="width: 350px;border:inherit; background-color: #f1f1f1;" ng-init="sessionBetweenOrder=6;lowRisk=1.05; mediumRisk=1.08; highRisk=1.10;">
@@ -553,19 +555,19 @@
                         </th>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="ns500 = {'name':'Normal Saline 500ml', 'maxCap': 80, 'qtt': 10, 'rules':[{'rule':1},{'rule': -1}] }" ng-style="td()">
+                        <td ng-init="ns500 = {'name':'Normal Saline 500ml', 'maxCap': 80, 'qtt': 10, 'rules':[{'rule':1}] }" ng-style="td()">
                             {{ ns500.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ NormalSaline(ns500_b, patientCount_d, isolationCount_d, mediumRisk, ns500 ) }}
+                            {{ NormalSaline500(ns500_b, patientCount_d, isolationCount_d, mediumRisk, ns500 ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="ns1000 = { 'name':'Normal Saline 1000ml', 'maxCap':60, 'qtt':10, 'rules':[{'rule':1},{'rule':1}]}" ng-style="td()">
+                        <td ng-init="ns1000 = { 'name':'Normal Saline 1000ml', 'maxCap':60, 'qtt':10, 'rules':[{'rule':1}]}" ng-style="td()">
                             {{ ns1000.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
-                            {{ NormalSaline(ns1000_b, patientCount_d, flushingCount_d, lowRisk, ns1000 ) }}
+                            {{ NormalSaline1000(ns1000_b, patientCount_d, flushingCount_d, 1, ns1000 ) }}
                         </td>
                     </tr>
                     <tr ng-style="tr()">
@@ -656,7 +658,7 @@
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="sg = {'name': 'Sterile Gauze', 'maxCap': 54, 'qtt': 20, 'rule': [{ 'patient':2}, { 'cvc': 5}]}" ng-style="td()">
+                        <td ng-init="sg = {'name': 'Sterile Gauze', 'maxCap': 54, 'qtt': 20, 'rule': [{ 'patient':2}, { 'cvc': 5}], 'looseQuantity':5}" ng-style="td()">
                             {{ sg.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
@@ -664,7 +666,7 @@
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="sc = { 'name': 'Sterile Cotton Ball', 'maxCap':16, 'qtt': 30, 'rule': [{ 'patient': 2}]}" ng-style="td()">
+                        <td ng-init="sc = { 'name': 'Sterile Cotton Ball', 'maxCap':16, 'qtt': 30, 'rule': [{ 'patient': 2}], 'looseQuantity':10}" ng-style="td()">
                             {{ sc.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
@@ -672,7 +674,7 @@
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="avf15 = {'name': 'AVF Needle 15G', 'maxCap': 24, 'qtt': 50, 'rules': [{ 'rule':2}]}" ng-style="td()">
+                        <td ng-init="avf15 = {'name': 'AVF Needle 15G', 'maxCap': 24, 'qtt': 50, 'rules': [{ 'rule':2}],}" ng-style="td()">
                             {{ avf15.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
@@ -720,7 +722,7 @@
                         </td>
                     </tr>
                     <tr ng-style="tr()">
-                        <td ng-init="handtowel = {'name': 'Hand Towel', 'maxCap': 4, 'qtt': 20, 'rule': [{'patient': 1 }]}" ng-style="td()">
+                        <td ng-init="handtowel = {'name': 'Hand Towel', 'maxCap': 4, 'qtt': 20, 'rule': [{'patient': 0.04 }]}" ng-style="td()">
                             {{ handtowel.name }}
                         </td>
                         <td colspan="2" style="width: 300px;" ng-style="td()">
@@ -788,17 +790,17 @@
                             {{ cit4.name }}
                         </td>
                         <td colspan="2 " style="width: 300px; " ng-style="td()">
-                            {{ Drug( cit_b, cit_d, lowRisk, cit4 )}}
+                            {{ Drug( cit4_b, cit4_d, lowRisk, cit4 )}}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3 " id="error">
-                            Loding...
+                            Loading...
                         </td>
                     </tr>
                 </table>
             </div>
-            <button type="button " onclick="updateError();pdf( 'dvContent');pdf( 'demandContent');pdf( 'balanceContent');">PRINT REPORT</button>
+            <button type="button" onclick="updateError();pdf( 'dvContent', 'storeKeeper', 'dd', 'department');">PRINT REPORT</button>
         </div>
     </div>
 </body>
