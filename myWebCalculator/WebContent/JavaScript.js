@@ -234,13 +234,14 @@ app.controller('myCtrl', function($scope) {
         var minL = ((((PatientCount * obj.rule[0].patient) - (CVC * obj.rule[0].patient)) * $scope.sessionBetweenWaiting * Rate) / obj.looseQuantity) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
-    // Citraflow 4%
-    $scope.Citraflow = function(Balance, Citraflow, Rate, obj) {
-        var BalanceByBox = Balance / obj.qtt; // query the need to calculate by pieces
+    /*
+    $scope.Citraflow = function(BalanceByBox, Citraflow, Rate, obj) {
+        //var BalanceByBox = Balance / obj.qtt; // query the need to calculate by pieces
         var twoWeek = ((Citraflow * obj.rule[0].cit4) * $scope.sessionBetweenOrder * Rate) / obj.qtt;
         var minL = ((Citraflow * obj.rule[0].cit4) * $scope.sessionBetweenWaiting * Rate) / obj.qtt;
         return $scope.finalCheck(BalanceByBox, minL, twoWeek, obj);
     };
+    */
     $scope.Chlohexidine = function(Balance, PatientCount, Rate, obj) {
         var BalanceByBox = Balance / obj.qtt;
         var twoWeek = (PatientCount * obj.rule[0].cvc * $scope.sessionBetweenOrder * Rate) / obj.qtt;

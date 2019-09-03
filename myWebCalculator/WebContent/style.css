@@ -119,7 +119,7 @@ input[type="number"] {
 }
 
 #dvContent {
-    border: 1px solid black;
+    border: none;
 }
 
 input [type=text] {
