@@ -328,6 +328,26 @@
                         <input type="number" ng-model="sm_b" min="0" max="100" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        Disposable Gloves
+                    </td>
+                    <td>
+                        <input type="number" ng-model="dg_b" min="0" max="200" />
+                    </td>
+                </tr>
             </table>
         </div>
 
@@ -496,10 +516,10 @@
                         <input type="number" ng-model="cit4_d" min="0" max="200" />
                     </td>
                     <td>
-
+                        Disposable Gloves
                     </td>
                     <td>
-
+                        <input type="number" ng-model="dg_d" min="0" max="200" />
                     </td>
                 </tr>
             </table>
@@ -792,6 +812,14 @@
                         </td>
                         <td colspan="2 " style="width: 300px; " ng-style="td()">
                             {{ Drug( cit4_b, cit4_d, lowRisk, cit4 )}}
+                        </td>
+                    </tr>
+                    <tr ng-style="tr()">
+                        <td ng-init="dg = {'name': 'Disposable Gloves', 'maxCap': 10, 'qtt': 10, }" ng-style="td()">
+                            {{ dg.name }}
+                        </td>
+                        <td colspan="2 " style="width: 300px; " ng-style="td()">
+                            {{ Drug( dg_b, dg_d, mediumRisk, dg )}}
                         </td>
                     </tr>
                     <tr>
