@@ -26,8 +26,8 @@ function updateError() {
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.departments = ['PGDC/L4', 'PGDC/L5'];
-    $scope.sessionBetweenWaiting = 2;
-    $scope.sessionBetweenOrder = 3;
+    $scope.sessionBetweenWaiting = 5;
+    $scope.sessionBetweenOrder = 6;
     $scope.lowRisk = 1.02;
     $scope.mediumRisk = 1.05;
     $scope.highRisk = 1.08;
