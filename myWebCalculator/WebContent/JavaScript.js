@@ -28,9 +28,9 @@ app.controller('myCtrl', function($scope) {
     $scope.departments = ['PGDC/L4', 'PGDC/L5'];
     $scope.sessionBetweenWaiting = 5;
     $scope.sessionBetweenOrder = 6;
-    $scope.lowRisk = 1.05;
-    $scope.mediumRisk = 1.08;
-    $scope.highRisk = 1.10;
+    $scope.lowRisk = 1.02;
+    $scope.mediumRisk = 1.05;
+    $scope.highRisk = 1.08;
 
     $scope.style = function() {
         return background;
