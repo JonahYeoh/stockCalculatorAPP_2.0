@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
     <title>Calculator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="JavaScript.js"></script>
@@ -553,7 +553,15 @@
                         Session Before Expected Arrival
                     </td>
                     <td>
-                        <input type="number" ng-model="sessionBetweenWaiting" min="0" max="20" />
+                        <input type="number" ng-model="sessionBetweenWaiting" min="0" max="50" />
+                    </td>
+                </tr>
+                <tr ng-style="tr()">
+                    <td>
+                        Session Between Order
+                    </td>
+                    <td>
+                        <input type="number" ng-model="sessionBetweenOrder" min="0" max="50" />
                     </td>
                 </tr>
                 <tr ng-style="tr()">
